@@ -15,3 +15,56 @@ meta:
     overgang til arbeid og aktivitet. Målet er å skape eit inkluderande samfunn,
     eit inkluderande arbeidsliv og ein velfungerande arbeidsmarknad.
   founded: 2006
+
+typography:
+  fonts:
+    - family: Source Sans 3
+      source: google
+      weight: [400, 800]
+      style: normal
+
+color:
+  palette:
+    neutral-600: "#6f7785"
+    neutral-700: "#5d6573"
+    neutral-800: "#555d6a"
+    accent-600: "#2176D4"
+    accent-700: "#0063c1"
+    accent-800: "#005bb6"
+    success-600: "#00893c"
+    success-700: "#007629"
+    success-800: "#006c1f"
+    warning-600: "#ca5000"
+    warning-700: "#ac4400"
+    warning-800: "#a03e00"
+    danger-600: "#e22948"
+    danger-700: "#cb0035"
+    danger-800: "#bc002a"
+    info-600: "#457c9d"
+    info-700: "#246b91"
+    info-800: "#156389"
+    brand-magenta-600: "#b65681"
+    brand-magenta-700: "#a93d70"
+    brand-magenta-800: "#a33069"
+    brand-beige-600: "#ad634a"
+    brand-beige-700: "#915541"
+    brand-beige-800: "#874e3b"
+    brand-blue-600: "#457c9d"
+    brand-blue-700: "#246b91"
+    brand-blue-800: "#156389"
+    meta-purple-600: "#905bd3"
+    meta-purple-700: "#7c4abf"
+    meta-purple-800: "#7342b6"
+    meta-lime-600: "#757c00"
+    meta-lime-700: "#646900"
+    meta-lime-800: "#5c6100"
+
+  foreground: "#202733"
+  background: "#ffffff"
+  primary: accent-600
+  success: success-600
+  info: info-600
+  warning: warning-600
+  danger: danger-600
+  light: "#ffffff"
+  dark: "#49515e"
