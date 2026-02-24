@@ -1,0 +1,17 @@
+logo:
+  medium:
+    light: NAV_logo_digital_Red.svg
+    dark: NAV_logo_digital_White.svg
+
+meta:
+  name:
+    full: Arbeids- og velferdsetaten
+    short: Nav
+  link:
+    home: https://www.nav.no
+    github: https://github.com/navikt
+  description: |
+    Navs samfunnsoppdrag er å bidra til sosial og økonomisk tryggleik og fremme
+    overgang til arbeid og aktivitet. Målet er å skape eit inkluderande samfunn,
+    eit inkluderande arbeidsliv og ein velfungerande arbeidsmarknad.
+  founded: 2006

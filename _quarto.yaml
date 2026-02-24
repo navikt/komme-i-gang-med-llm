@@ -1,14 +1,31 @@
 project:
+  type: website
   render:
     - index.qmd
+  output-dir: _output
+
+website:
+  title: "Komme i gang med språkmodeller i Nav"
+  navbar:
+    search: false
+    right:
+      - icon: people
+        href: https://teamkatalog.nav.no/team/9ad5db15-8277-45f4-91fe-d4450ad5ea26
+        aria-label: Teamkatalogen
+      - icon: slack
+        href: https://nav-it.slack.com/archives/C082R9TBN6M
+        aria-label: Slack
+
+brand: brand/_brand.yaml
 
 format:
   html:
-    title: "Komme i gang med språkmodeller i Nav"
     highlight-style: atom-one
     other-links:
       - text: Veileder for maskinlæringsprosjekter
         href: https://data.ansatt.nav.no/quarto/db4222f2-f336-4fa4-81eb-219903894699/_book/index.html
+      - text: ROS av språkmodeller på GCP Vertex AI
+        href: https://apps.powerapps.com/play/e/default-62366534-1ec3-4962-8869-9b5535279d0b/a/f8517640-ea01-46e2-9c09-be6b05013566?ID=2193&tenantId=62366534-1ec3-4962-8869-9b5535279d0b&source=sharebutton&sourcetime=1770976397332
     embed-resources: true
     toc: true
     toc-title: Innhold

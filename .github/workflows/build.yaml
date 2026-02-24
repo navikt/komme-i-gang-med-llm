@@ -19,7 +19,7 @@ jobs:
               uses: navikt/story-upload@v1
               with:
                 id: 853b92c8-84a2-4f23-8219-457e4efd5e1c
-                dir: .
+                dir: _output/
                 team_token: ${{ secrets.TEAM_TOKEN }}
                 env: prod
                 public: false
