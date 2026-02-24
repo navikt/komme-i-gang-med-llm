@@ -5,7 +5,7 @@ project:
   output-dir: _output
 
 website:
-  title: "Komme i gang med språkmodeller i Nav"
+  title: "Komme i gang med språkmodeller"
   navbar:
     search: false
     right:
@@ -31,6 +31,3 @@ format:
     toc-title: Innhold
     language:
       other-links-title: "Nyttige lenker"
-    theme:
-      light: flatly
-      dark: darkly

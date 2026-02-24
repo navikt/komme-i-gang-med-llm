@@ -186,6 +186,18 @@ gcloud projects add-iam-policy-binding <prosjekt-id> \
   --role="roles/aiplatform.user"
 ```
 
+For å finne eposten til servicekontoen kan du bruke følgende kommando:
+
+```bash
+kubectl describe serviceaccount <applikasjon> | grep gcp-service-account
+```
+
+::: {.column-margin}
+Du kan følge [veiledningen til
+Nais](https://docs.nais.io/operate/how-to/command-line-access/?h=) for hjelp til
+installasjon og bruk av `kubectl`.
+:::
+
 ::: {.callout-note}
 Dette må gjøres både for `dev` og `prod` instansene av servicekontoen til
 applikasjonen.
