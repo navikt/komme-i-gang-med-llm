@@ -1,0 +1,195 @@
+I denne veilederen skal vi se på hvordan komme i gang med språkmodeller som en
+utvikler eller i et produktteam i Nav. Denne veilederen er ment for prosjekter
+som ønsker å integrere språkmodeller i sine produkter eller tjenester.
+
+Når vi omtaler språkmodeller i denne veilederen mener vi store språkmodeller
+(f.eks.  GPT, Gemini, Claud eller LLama).
+
+Vi kommer til å omtale koden / integreringen av språkmodell for et prosjekt.
+Dette gjør at vi enklere kan snakke om bare den delen som omhandler
+språkmodellen selv om denne delen måtte være en del av et større system.
+
+:::::: {.callout collapse="true"}
+## Changelog
+
+- **TBD**: Veileder lansert
+
+:::
+
+## Avgjøre type prosjekt
+
+Det første vi må avklare er om prosjektet burde følge [*Veileder for
+maskinlæringsprosjekter*][veil-ml] eller om man kan starte utvikling uten større
+fanfare.
+
+Vi avgjør dette ved å vurdere om prosjektet skal behandle personopplysninger:
+
+- Skal prosjektet behandle personopplysninger **må** prosjektet følge [*Veileder
+for maskinlæringsprosjekter*][veil-ml].
+- Hvis prosjektet ikke eksplisitt skal behandle personopplysninger burde man
+kunne bruke språkmodeller.
+
+Det finnes nyanser på om prosjektet behandler personopplysninger eller ikke. For
+mange applikasjoner hvor språkmodell kan benyttes vil det være fritekst som
+potensielt kan inneholde personopplysninger. I disse tilfellene må prosjektet
+selv avgjøre om risikoen for personopplysninger er såpass liten at det kan
+regnes for avvik når det forekommer eller om det er sannsynlig at
+personopplysninger vil bli behandlet som en del av normal bruk av applikasjonen.
+
+::: {.callout-tip collapse="true"}
+## Hvorfor må vi _kanskje ikke_ bruke veilederen?
+
+Siden språkmodeller allerede er trent og vi kan lede dem gjennom
+systeminstrukser forekommer det ingen eksplisitt trening av språkmodellene.
+Dette gjør at veilederen ikke nødvendigvis må brukes fordi det ikke er snakk om
+trening av modeller.
+:::
+
+---
+
+Hvis prosjektet faller under [*Veileder for maskinlæringsprosjekter*][veil-ml]
+følger dere veiledning der og kommer tilbake for den tekniske beskrivelsen her.
+Hvis prosjektet **ikke skal behandle personopplysninger** kan man fortsette
+nedover.
+
+## Oppdatere ROS
+
+Før dere begynner å integrere språkmodell i prosjektet kan det være lurt å tenke
+over hvordan bruk av språkmodell påvirker resten av systemet.
+
+Vi _anbefaler på det sterkeste_ at dere på dette punktet oppdaterer eksisterende
+ROS og setter dere godt inn i [ROS for språkmodeller på GCP Vertex
+AI][ros-vertex].
+
+## Tilgjengelige språkmodeller
+
+I Nav har vi tilgang til språkmodeller gjennom enten Azure OpenAI eller GCP
+Vertex AI. _Team KI anbefaler å bruke Vertex AI_ da dette gir flere fordeler
+sammen med Nais platformen (les hele begrunnelsen i [vedlegg for ROS av
+språkmodeller på GCP Vertex AI][ros-vertex]).
+
+### Velge språkmodell
+
+Når det kommer til å velge en konkret språkmodell er det flere ting man burde
+tenke på:
+
+- Hvor kompleks er oppgaven som språkmodellen skal løse?
+  - Mange oppgaver kan løses med de rimeligere språkmodellene (f.eks. Gemini 2.5
+  Flash eller Anthropic Claude Haiku).
+  - Vi anbefaler at dere tester ut flere språkmodeller og gjerne lager tester
+  slik at dere kan sammenligne resultatene (dette vil også gjøre det enklere å
+  oppgradere språkmodellen senere).
+- Hvilke krav prosjektet har til input og output?
+  - Trenger man støtte for forskjellig media (f.eks. bilder, video eller lyd)
+- Hvilke krav har prosjektet til umiddelbar respons?
+  - Flere leverandører tilbyr ["batch"
+  prosessering](https://ai.google.dev/gemini-api/docs/batch-api?batch=f) som kan
+  være betydelig billigere hvis man kan vente på resultatet.
+
+## Språkmodeller på Vertex AI
+
+For språkmodeller på Vertex AI har vi i Nav mulighet til å benytte
+språkmodellene som Google tilbyr gjennom sin API:
+
+- [_Google model endpoint locations_](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#europe)
+- [_Google Cloud partner model endpoint locations_](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#genai-partner-models)
+
+Det skal kun benyttes språkmodeller som er tilgjengelige i EU/EØS regioner. Nais
+plattformen kjører i regionen `europe-north1` så vi anbefaler å prøve å benytte
+denne regionen.
+
+Det er ikke tilgang til å benytte regionen `global` for språkmodeller da Nav
+ikke har innsikt i hvor data blir prosessert. Nais prøver å begrense muligheten
+for å benytte denne regionen, men skulle man tilfeldigvis teste og det fungerer
+så betyr det ikke at regionen er godkjent for bruk.
+
+### Tilgang lokalt
+
+For å komme i gang med språkmodeller på Vertex AI er det et par steg man må gjennom.
+
+::: {.callout-note collapse="true"}
+## Konfigurer riktig GCP prosjekt
+
+Pass på at riktig GCP prosjekt er konfigurert i `gcloud`. Dette kan gjøres med kommandoen:
+
+```bash
+gcloud config set project <prosjekt-id>
+```
+:::
+
+Vi starter med å autentisere oss mot GCP:
+
+```bash
+gcloud auth login
+```
+
+Deretter må vi aktivere Vertex AI API for prosjektet vårt:
+
+```bash
+gcloud services enable aiplatform.googleapis.com
+```
+
+Man kan nå benytte `gcloud auth application-default login` for å autentisere mot
+GCP og få tilgang til Vertex AI API gjennom SDK eller REST API. Dette er
+foreløpig nok for å begynne å teste lokalt på egen maskin.
+
+Vi kan nå teste ved å stille et enkelt spørsmål til Gemini 2.5 Flash gjennom
+`curl`:
+
+```bash
+curl \
+  -X POST \
+  -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+  -H "Content-Type: application/json" \
+  https://europe-north1-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/europe-north1/publishers/google/models/gemini-2.5-flash:generateContent -d \
+  $'{
+    "contents": {
+      "role": "user",
+      "parts": [
+        {
+          "text": "Beskriv hvordan språkmodeller kan hjelpe brukere i Nav med å finne informasjon og løse oppgaver raskere."
+        }
+      ]
+    }
+  }'
+```
+
+::: {.callout-tip collapse="true"}
+## Manglende tilgang
+
+Hvis du får en feilmelding når du prøver å bruke Vertex AI etter å ha fulgt
+stegene over, kan det være at brukeren din ikke har de nødvendige tilgangene.
+
+Du kan gi direkte tilgang til å bruke språkmodeller på Vertex AI ved å tildele
+rollen "Vertex AI User" (`roles/aiplatform.user`) til brukeren din:
+
+```bash
+gcloud projects add-iam-policy-binding <prosjekt-id> \
+  --member="user:<din-epost@nav.no>" \
+  --role="roles/aiplatform.user"
+```
+:::
+
+### Tilgang på Nais
+
+For at applikasjonen på Nais skal kunne benytte Vertex AI må vi gi
+servicekontoen som applikasjonen kjører under tilgang til Vertex AI. Dette kan
+gjøres ved å tildele rollen "Vertex AI User" (`roles/aiplatform.user`) til
+servicekontoen.
+
+Dette kan enten gjøres gjennom GCP konsollen under "IAM & Admin" eller gjennom
+`gcloud` kommandoen:
+
+```bash
+gcloud projects add-iam-policy-binding <prosjekt-id> \
+  --member="serviceAccount:<servicekonto-email>" \
+  --role="roles/aiplatform.user"
+```
+
+::: {.callout-note}
+Dette må gjøres både for `dev` og `prod` instansene av servicekontoen til
+applikasjonen.
+:::
+
+[veil-ml]: https://data.ansatt.nav.no/quarto/db4222f2-f336-4fa4-81eb-219903894699/_book/index.html
+[ros-vertex]: https://apps.powerapps.com/play/e/default-62366534-1ec3-4962-8869-9b5535279d0b/a/f8517640-ea01-46e2-9c09-be6b05013566?ID=2193&tenantId=62366534-1ec3-4962-8869-9b5535279d0b&source=sharebutton&sourcetime=1770976397332
