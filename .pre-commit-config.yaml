@@ -33,3 +33,7 @@ repos:
     rev: 0.9.0
     hooks:
       - id: nbstripout
+  - repo: https://github.com/rvben/rumdl-pre-commit
+    rev: v0.1.26
+    hooks:
+      - id: rumdl-fmt  # Auto-format and fail if issues remain
