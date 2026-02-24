@@ -22,9 +22,9 @@ lint:
 preview:
     uv run --group quarto quarto preview .
 
-# Bygg prosjektet i Docker
+# Bygg Quarto prosjektet
 build:
-    docker build .
+    uv run --group quarto quarto render .
 
 # Oppdater Python og pre-commit avhengigheter
 update:

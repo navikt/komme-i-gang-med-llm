@@ -1,0 +1,19 @@
+project:
+  render:
+    - index.qmd
+
+format:
+  html:
+    title: "Komme i gang med språkmodeller i Nav"
+    highlight-style: atom-one
+    other-links:
+      - text: Veileder for maskinlæringsprosjekter
+        href: https://data.ansatt.nav.no/quarto/db4222f2-f336-4fa4-81eb-219903894699/_book/index.html
+    embed-resources: true
+    toc: true
+    toc-title: Innhold
+    language:
+      other-links-title: "Nyttige lenker"
+    theme:
+      light: flatly
+      dark: darkly
