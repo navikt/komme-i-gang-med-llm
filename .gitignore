@@ -177,3 +177,7 @@ pyrightconfig.json
 
 /.quarto/
 **/*.quarto_ipynb
+
+_site/
+_output/
+index.html
