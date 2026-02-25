@@ -12,7 +12,7 @@ språkmodellen selv om denne delen måtte være en del av et større system.
 :::::: {.callout collapse="true"}
 ## Changelog
 
-- **TBD**: Veileder lansert
+- **25.02.2026**: Første versjon av veilederen publisert.
 
 :::
 
