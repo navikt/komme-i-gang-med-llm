@@ -4,8 +4,14 @@ project:
     - index.qmd
   output-dir: _output
 
+brand: brand/_brand.yaml
+
 website:
   title: "Komme i gang med språkmodeller"
+  description: "En veileder for å komme i gang med språkmodeller i Nav"
+  repo-url: https://github.com/navikt/komme-i-gang-med-llm
+  issue-url: https://github.com/navikt/komme-i-gang-med-llm/issues
+  repo-actions: ["issue", "edit"]
   navbar:
     search: false
     right:
@@ -15,8 +21,6 @@ website:
       - icon: slack
         href: https://nav-it.slack.com/archives/C082R9TBN6M
         aria-label: Slack
-
-brand: brand/_brand.yaml
 
 format:
   html:
@@ -28,6 +32,3 @@ format:
         href: https://apps.powerapps.com/play/e/default-62366534-1ec3-4962-8869-9b5535279d0b/a/f8517640-ea01-46e2-9c09-be6b05013566?ID=2193&tenantId=62366534-1ec3-4962-8869-9b5535279d0b&source=sharebutton&sourcetime=1770976397332
     embed-resources: true
     toc: true
-    toc-title: Innhold
-    language:
-      other-links-title: "Nyttige lenker"
