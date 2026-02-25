@@ -23,39 +23,21 @@ typography:
 
 color:
   palette:
-    neutral-600: "#6f7785"
-    neutral-700: "#5d6573"
-    neutral-800: "#555d6a"
-    accent-600: "#2176D4"
-    accent-700: "#0063c1"
-    accent-800: "#005bb6"
-    success-600: "#00893c"
-    success-700: "#007629"
-    success-800: "#006c1f"
-    warning-600: "#ca5000"
-    warning-700: "#ac4400"
-    warning-800: "#a03e00"
-    danger-600: "#e22948"
-    danger-700: "#cb0035"
-    danger-800: "#bc002a"
-    info-600: "#457c9d"
-    info-700: "#246b91"
-    info-800: "#156389"
-    brand-magenta-600: "#b65681"
-    brand-magenta-700: "#a93d70"
-    brand-magenta-800: "#a33069"
     brand-beige-600: "#ad634a"
-    brand-beige-700: "#915541"
-    brand-beige-800: "#874e3b"
+    brand-beige-dark-600: "#ab705b"
     brand-blue-600: "#457c9d"
-    brand-blue-700: "#246b91"
-    brand-blue-800: "#156389"
-    meta-purple-600: "#905bd3"
-    meta-purple-700: "#7c4abf"
-    meta-purple-800: "#7342b6"
-    meta-lime-600: "#757c00"
-    meta-lime-700: "#646900"
-    meta-lime-800: "#5c6100"
+    brand-blue-dark-600: "#5b839c"
+    brand-magenta-600: "#b65681"
+    brand-magenta-dark-700: "#be7f99"
+    brand-magenta-dark-800: "#c58aa2"
+    danger-600: "#e22948"
+    danger-dark-600: "#de4a50"
+    info-600: "#457c9d"
+    info-dark-600: "#5b839c"
+    success-600: "#00893c"
+    success-dark-600: "#378f53"
+    warning-600: "#ca5000"
+    warning-dark-600: "#c56333"
 
   foreground:
     light: "#202733"
@@ -65,16 +47,27 @@ color:
     dark: "#0e151f"
   primary:
     light: brand-magenta-600
-    dark: "#0e151f"
+    dark: brand-magenta-dark-700
+  secondary:
+    light: brand-blue-600
+    dark: brand-blue-dark-600
   tertiary:
     light: brand-beige-600
-    dark: meta-purple-600
-  success: success-600
-  info: info-600
-  warning: warning-600
-  danger: danger-600
+    dark: brand-beige-dark-600
+  success:
+    light: success-600
+    dark: success-dark-600
+  info:
+    light: info-600
+    dark: info-dark-600
+  warning:
+    light: warning-600
+    dark: warning-dark-600
+  danger:
+    light: danger-600
+    dark: danger-dark-600
   light: "#ffffff"
   dark: "#49515e"
   link:
     light: brand-magenta-600
-    dark: accent-800
+    dark: brand-magenta-dark-800
