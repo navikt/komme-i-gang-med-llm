@@ -1,25 +1,25 @@
-name: Bygg dokumentasjon
+name: Publiser dokumentasjon til Datamarkedsplassen
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-
-        steps:
-            - uses: actions/checkout@v6
-            - name: Installer Quarto
-              uses: quarto-dev/quarto-actions/setup@v2
-            - name: Bygg HTML
-              uses: quarto-dev/quarto-actions/render@v2
-            - name: Last opp internt
-              uses: navikt/story-upload@v1
-              with:
-                id: 853b92c8-84a2-4f23-8219-457e4efd5e1c
-                dir: _output/
-                team_token: ${{ secrets.TEAM_TOKEN }}
-                env: prod
-                public: false
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Installer Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Bygg HTML
+        uses: quarto-dev/quarto-actions/render@v2
+      - name: Last opp internt
+        uses: navikt/story-upload@v1
+        with:
+          id: 853b92c8-84a2-4f23-8219-457e4efd5e1c
+          dir: _output/
+          team_token: ${{ secrets.TEAM_TOKEN }}
+          env: prod
+          public: false
+          batch_size: 100
