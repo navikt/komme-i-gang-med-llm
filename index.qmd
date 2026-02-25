@@ -5,7 +5,7 @@ som ønsker å integrere språkmodeller i sine produkter eller tjenester.
 Når vi omtaler språkmodeller i denne veilederen mener vi store språkmodeller
 (f.eks.  GPT, Gemini, Claud eller LLama).
 
-Vi kommer til å omtale koden / integreringen av språkmodell for et prosjekt.
+Vi kommer til å omtale koden / integreringen av språkmodell for "et prosjekt".
 Dette gjør at vi enklere kan snakke om bare den delen som omhandler
 språkmodellen selv om denne delen måtte være en del av et større system.
 
