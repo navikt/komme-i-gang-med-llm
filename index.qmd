@@ -61,6 +61,17 @@ Vi _anbefaler på det sterkeste_ at dere på dette punktet oppdaterer eksisteren
 ROS og setter dere godt inn i [ROS for språkmodeller på GCP Vertex
 AI][ros-vertex].
 
+### Registrere prosjektet som et KI-initiativ
+
+Når dere har kommet litt i gang og er ferdig med eksperimentering og kanskje
+ønsker å gå videre med å integrere prosjektet, ønsker vi i Team KI at dere
+registrerer prosjektet som et KI-initiativ i Nav. Dette gjør at vi kan følge med
+på hva slags prosjekter som benytter språkmodeller og hvordan de benytter det,
+og det gjør det enklere for oss å hjelpe dere hvis dere skulle trenge det.
+
+[_Registrer prosjektet som et KI-initiativ
+her._](https://forms.office.com/Pages/ResponsePage.aspx?id=NGU2YsMeYkmIaZtVNSedCx4bQ143Ff5LkE8rGxrcYelURUJXSUw2WVcxNlg2UjA1QURKTDVBTUo4NS4u)
+
 ## Tilgjengelige språkmodeller
 
 I Nav har vi tilgang til språkmodeller gjennom enten Azure OpenAI eller GCP
