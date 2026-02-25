@@ -97,6 +97,11 @@ tenke på:
   prosessering](https://ai.google.dev/gemini-api/docs/batch-api?batch=f) som kan
   være betydelig billigere hvis man kan vente på resultatet.
 
+Det kan være store forskjeller i pris mellom de forskjellige språkmodellene og
+det er viktig å ha et bevist forhold til kostnadene. Man kan sammenligne prisene
+for de ulike språkmodellene på [Google sin prisside for Vertex
+AI](https://cloud.google.com/vertex-ai/generative-ai/pricing).
+
 ## Språkmodeller på Vertex AI
 
 For språkmodeller på Vertex AI har vi i Nav mulighet til å benytte
