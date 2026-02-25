@@ -75,7 +75,7 @@ her._](https://forms.office.com/Pages/ResponsePage.aspx?id=NGU2YsMeYkmIaZtVNSedC
 ## Tilgjengelige språkmodeller
 
 I Nav har vi tilgang til språkmodeller gjennom enten Azure OpenAI eller GCP
-Vertex AI. _Team KI anbefaler å bruke Vertex AI_ da dette gir flere fordeler
+Vertex AI. **Team KI anbefaler å bruke Vertex AI** da dette gir flere fordeler
 sammen med Nais platformen (les hele begrunnelsen i [vedlegg for ROS av
 språkmodeller på GCP Vertex AI][ros-vertex]).
 
@@ -109,7 +109,7 @@ Det skal kun benyttes språkmodeller som er tilgjengelige i EU/EØS regioner. Na
 plattformen kjører i regionen `europe-north1` så vi anbefaler å prøve å benytte
 denne regionen.
 
-Det er ikke tilgang til å benytte regionen `global` for språkmodeller da Nav
+**Det er ikke tilgang til å benytte regionen `global` for språkmodeller** da Nav
 ikke har innsikt i hvor data blir prosessert. Nais prøver å begrense muligheten
 for å benytte denne regionen, men skulle man tilfeldigvis teste og det fungerer
 så betyr det ikke at regionen er godkjent for bruk.
