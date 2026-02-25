@@ -1,6 +1,5 @@
 logo:
-  medium:
-    light: NAV_logo_digital_White.svg
+  medium: NAV_logo_digital_White.svg
 
 meta:
   name:
@@ -58,9 +57,18 @@ color:
     meta-lime-700: "#646900"
     meta-lime-800: "#5c6100"
 
-  foreground: "#202733"
-  background: "#ffffff"
-  primary: accent-600
+  foreground:
+    light: "#202733"
+    dark: "#DFE1E5"
+  background:
+    light: "#ffffff"
+    dark: "#0e151f"
+  primary:
+    light: brand-magenta-600
+    dark: brand-blue-800
+  tertiary:
+    light: brand-beige-600
+    dark: meta-purple-600
   success: success-600
   info: info-600
   warning: warning-600
