@@ -59,13 +59,13 @@ color:
 
   foreground:
     light: "#202733"
-    dark: "#DFE1E5"
+    dark: "#dfe1e5"
   background:
     light: "#ffffff"
     dark: "#0e151f"
   primary:
     light: brand-magenta-600
-    dark: brand-blue-800
+    dark: "#0e151f"
   tertiary:
     light: brand-beige-600
     dark: meta-purple-600
@@ -75,3 +75,6 @@ color:
   danger: danger-600
   light: "#ffffff"
   dark: "#49515e"
+  link:
+    light: brand-magenta-600
+    dark: accent-800
