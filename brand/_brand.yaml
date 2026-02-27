@@ -20,9 +20,15 @@ typography:
       source: google
       weight: [400, 800]
       style: normal
+  monospace-block:
+    background-color:
+      light: neutral-200
+      dark: neutral-dark-200
 
 color:
   palette:
+    neutral-200: "#ecedef"
+    neutral-dark-200: "#1c232f"
     brand-beige-600: "#ad634a"
     brand-beige-dark-600: "#ab705b"
     brand-blue-600: "#457c9d"
