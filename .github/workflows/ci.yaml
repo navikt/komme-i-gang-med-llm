@@ -7,6 +7,8 @@ on:
     # Tillat at man manuelt starter jobber på Github
 env:
   FORCE_COLOR: "1"
+permissions:
+  contents: read
 jobs:
   lint:
     runs-on: ubuntu-latest
