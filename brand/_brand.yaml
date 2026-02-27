@@ -1,5 +1,7 @@
 logo:
-  medium: NAV_logo_digital_White.svg
+  medium:
+    light: NAV_logo_digital_Red.svg
+    dark: NAV_logo_digital_White.svg
 
 meta:
   name:
@@ -28,6 +30,7 @@ color:
     brand-blue-600: "#457c9d"
     brand-blue-dark-600: "#5b839c"
     brand-magenta-600: "#b65681"
+    brand-magenta-dark-600: "#b16887"
     brand-magenta-dark-700: "#be7f99"
     brand-magenta-dark-800: "#c58aa2"
     danger-600: "#e22948"
@@ -47,7 +50,7 @@ color:
     dark: "#0e151f"
   primary:
     light: brand-magenta-600
-    dark: brand-magenta-dark-700
+    dark: brand-magenta-dark-600
   secondary:
     light: brand-blue-600
     dark: brand-blue-dark-600
