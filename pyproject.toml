@@ -15,5 +15,5 @@ notebooks = [
     "jupyter>=1.1.1",
 ]
 quarto = [
-    "quarto-cli>=1.8.26",
+    "quarto-cli>=1.9.38",
 ]
